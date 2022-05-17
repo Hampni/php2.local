@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+ mysql:
+  image: mariadb:latest
+  volumes:
+    - php2_mysql_data:/var/lib/mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_PASSWORD: 2481632
+    MYSQL_USER: Illia
+    MYSQL_DATABASE: php3
+
+volumes:
+  php2_mysql_data:
