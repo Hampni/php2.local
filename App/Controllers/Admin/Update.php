@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controller;
+use App\Exeptions\MultiExeption;
 use App\Models\Article;
 
 
@@ -16,9 +17,14 @@ class Update extends Controller
     public function action()
     {
         $updateArticle = Article::findById($_GET['id']);
-        $updateArticle->title = $_GET['title'];
-        $updateArticle->contents = $_GET['contents'];
-        $updateArticle->author_id = $_GET['author'];
-        $updateArticle->save();
+        try {
+            $updateArticle->fill($_GET);
+            $updateArticle->save();
+        } catch (MultiExeption $errors) {
+            foreach ($errors->getAll() as $error) {
+                throw $error->getMessage();
+            }
+        }
+
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controller;
+use App\Exeptions\MultiExeption;
 
 class Add extends Controller
 {
@@ -14,9 +15,14 @@ class Add extends Controller
     public function action()
     {
         $newArticle = new \App\Models\Article();
-        $newArticle->title = $_GET['title'];
-        $newArticle->contents = $_GET['contents'];
-        $newArticle->author_id = $_GET['author'];
-        $newArticle->save();
+        try {
+            $newArticle->fill($_GET);
+            $newArticle->save();
+        } catch (MultiExeption $errors) {
+            foreach ($errors->getAll() as $error) {
+                echo $error->getMessage() . '<br>';
+            }
+            die;
+        }
     }
 }

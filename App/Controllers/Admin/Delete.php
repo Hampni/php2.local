@@ -15,7 +15,7 @@ class Delete extends Controller
 
     public function action()
     {
-        $deleteArticle = Article::findById($_GET['deleteid']);
+        $deleteArticle = Article::findById($_GET['id']);
         $deleteArticle->delete();
 
     }

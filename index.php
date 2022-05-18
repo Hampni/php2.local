@@ -12,9 +12,18 @@ $class = '\App\Controllers\\' . $ctrl;
 
 
 $controller = new $class;
+if ($class == '\App\Models\Article') {
 
+}
 try {
+
     $controller();
-} catch (\App\Exeptions\DbExeption $db) {
-    echo $db->getMessage();
+
+} catch (\App\Exeptions\DbExeption $dbExeption){
+    include __DIR__ . '/App/Templates/ExeptionTemplates/DbExeption.php';
+    \App\ErrorLogger::addError($dbExeption);
+} catch (\App\Exeptions\Error404Exeption $error404Exeption) {
+    include __DIR__ . '/App/Templates/ExeptionTemplates/error404.php';
+    \App\ErrorLogger::addError($dbExeption);
+    die();
 }

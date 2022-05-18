@@ -4,6 +4,7 @@ namespace App;
 
 use App\Exeptions\DbExeption;
 use App\Exeptions\Error404Exeption;
+use App\Exeptions\MultiExeption;
 
 abstract class Model
 {
@@ -34,8 +35,7 @@ abstract class Model
         if ($data == true) {
             return $data[0];
         } else {
-            echo 'false';
-            throw new Error404Exeption();
+            throw new Error404Exeption('Ошибка 404 - не найдено');
         }
     }
 
@@ -57,6 +57,7 @@ abstract class Model
         $sql = 'INSERT INTO '. static::TABLE .' ('.implode(', ', $props).') VALUES ('.implode(', ', $binds).')';
         $db = new Db();
         $db->execute($sql,$data);
+
         $this->id = $db->lastInsertId();
 
     }
@@ -87,5 +88,36 @@ abstract class Model
         if (isset($this->id)) {
             $this->update();
         } else $this->insert();
+    }
+
+    public function fill(array $data)
+    {
+        $errors = new MultiExeption();
+
+        foreach ($data as $key => $value) {
+          $keyArg = explode('_', $key);
+
+            $methodName = '';
+            foreach ($keyArg as $keyName) {
+                $methodName .= ucfirst($keyName);
+            }
+            $validName = 'validate' . $methodName;
+
+            $validator = new Validator();
+            if (method_exists($validator, $validName)) {
+                try {
+                    if ($validator->$validName($value)) {
+                        $this->$key = $value;
+                    }
+                } catch (\Exception $e) {
+                    $errors->add($e);
+                    ErrorLogger::addError($e);
+                }
+            }
+            }
+        if (count($errors->getAll()) > 0){
+            throw $errors;
+        }
+
     }
 }
