@@ -7,7 +7,6 @@ class ErrorLogger
 
     public static function addError(\Exception $exception) {
 
-        $fileContent = explode("\n",file_get_contents(__DIR__ . '/log.txt'));
         $fileContent[] = implode('   ',
             [
                 date("d-m-Y H:i:s"),
@@ -16,7 +15,7 @@ class ErrorLogger
                 'line - ' . $exception->getLine()
             ]);
 
-        file_put_contents(__DIR__ . '/log.txt', implode("\n",$fileContent));
+        file_put_contents(__DIR__ . '/log.txt',"\n". implode("\n",$fileContent),FILE_APPEND);
 
     }
 

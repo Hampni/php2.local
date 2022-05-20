@@ -7,3 +7,6 @@
 18-05-2022 23:15:06   Not valid contents   C:\OpenServer\domains\php2.local\App\Validator.php   line - 31
 18-05-2022 23:15:06   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
 18-05-2022 23:15:26   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
+20-05-2022 09:07:22   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
+20-05-2022 09:08:33   Неверный хост базы данных!   C:\OpenServer\domains\php2.local\App\Db.php   line - 17
+20-05-2022 09:09:06   Неверный хост базы данных!   C:\OpenServer\domains\php2.local\App\Db.php   line - 17
