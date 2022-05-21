@@ -19,7 +19,7 @@ abstract class Model
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE;
-        $data = $db->query($sql,[], static::class);
+        $data = $db->query($sql, [], static::class);
         return $data;
     }
 
@@ -31,7 +31,7 @@ abstract class Model
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
-        $data = $db->query($sql, [':id' => $id],static::class);
+        $data = $db->query($sql, [':id' => $id], static::class);
         if ($data == true) {
             return $data[0];
         } else {
@@ -54,9 +54,11 @@ abstract class Model
             $data[':' . $prop] = $value;
         }
 
-        $sql = 'INSERT INTO '. static::TABLE .' ('.implode(', ', $props).') VALUES ('.implode(', ', $binds).')';
-        $db = new Db();
-        $db->execute($sql,$data);
+        $sql = 'INSERT INTO ' . static::TABLE . ' (' . implode(', ', $props) . ') 
+        VALUES (' . implode(', ', $binds) . ')';
+
+         $db = new Db();
+        $db->execute($sql, $data);
 
         $this->id = $db->lastInsertId();
 
@@ -67,10 +69,10 @@ abstract class Model
         $props = [];
         $data = [];
         foreach (get_object_vars($this) as $prop => $value) {
-            $props[] = $prop . ' = ' . ':' . $prop ;
+            $props[] = $prop . ' = ' . ':' . $prop;
             $data[':' . $prop] = $value;
         }
-        $sql = 'UPDATE '.static::TABLE.' SET '.implode(', ' , $props).' WHERE id = :id';
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' . implode(', ', $props) . ' WHERE id = :id';
         $db = new Db();
         $db->execute($sql, $data);
 
@@ -79,10 +81,11 @@ abstract class Model
     public function delete(): bool
     {
 
-        $sql = 'DELETE FROM '.static::TABLE .' WHERE id=:id';
+        $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id=:id';
         $db = new Db();
         return $db->execute($sql, [':id' => $this->id]);
     }
+
     public function save()
     {
         if (isset($this->id)) {
@@ -95,7 +98,7 @@ abstract class Model
         $errors = new MultiExeption();
 
         foreach ($data as $key => $value) {
-          $keyArg = explode('_', $key);
+            $keyArg = explode('_', $key);
 
             $methodName = '';
             foreach ($keyArg as $keyName) {
@@ -114,8 +117,8 @@ abstract class Model
                     ErrorLogger::addError($e);
                 }
             }
-            }
-        if (count($errors->getAll()) > 0){
+        }
+        if (count($errors->getAll()) > 0) {
             throw $errors;
         }
 

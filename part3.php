@@ -1,19 +1,35 @@
 <?php
 declare(strict_types=1);
+
+require_once __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/autoload.php';
 
-/*$view = new \App\View();
 
-$view->products = \App\Models\Product::findAll();
+$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+    ->setUsername('magnus9044@gmail.com')
+    ->setPassword('2481632o')
+;
 
-$contents = $view->render(__DIR__ . '/Templates/part3.php');
-echo $contents;*/
+// Create the Mailer using your created Transport
+$mailer = new Swift_Mailer($transport);
+
+// Create a message
+$message = (new Swift_Message('я лучший'))
+    ->setFrom(['magnus9044@gmail.com' => 'Admin'])
+    ->setTo(['i.prodanets@lajm.lt' => 'Illia Prodanets'])
+    ->setBody('го в шахматы')
+;
+
+// Send the message
+if ($mailer->send($message)) {
+    echo 'sent';
+} else {
+    echo 'fail';
+}
 
 
-$a = explode("\n",file_get_contents(__DIR__ . '/App/log.txt'));
-var_dump($a);
-$a[] = '444';
-file_put_contents(__DIR__ . '/App/log.txt', implode("\n",$a));
+
+
 
 
 

@@ -8,7 +8,9 @@ use JetBrains\PhpStorm\Internal;
 
 
 
-class View implements SetGetReadInterface, \countable, \iterator
+class View implements SetGetReadInterface,
+    \countable,
+    \iterator
 {
 
     private $position = 0;

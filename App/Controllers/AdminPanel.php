@@ -16,7 +16,6 @@ class AdminPanel extends Controller
         }   else {
             return false;
         }
-
     }
 
     public function action()

@@ -6,7 +6,6 @@ use http\Exception;
 
 class MultiExeption extends \Exception implements \Countable
 {
-
     protected $errors = [];
 
     public function add(\Exception $exception)
@@ -22,5 +21,4 @@ class MultiExeption extends \Exception implements \Countable
     {
         return count($this->errors);
     }
-
 }
