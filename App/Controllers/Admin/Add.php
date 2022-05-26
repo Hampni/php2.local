@@ -22,7 +22,8 @@ class Add extends Controller
             foreach ($errors->getAll() as $error) {
                 echo $error->getMessage() . '<br>';
             }
-            die;
+            die();
         }
+        header('Location: /AdminPanel/index.php');
     }
 }

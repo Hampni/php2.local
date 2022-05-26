@@ -14,7 +14,7 @@ class Article extends Model
     public $author_id = null;
 
     /**
-     * @param $sql  //request to db
+     * @param $sql //request to db
      * @param $params // parametrs for execution
      * @return void // nothing to return
      */
@@ -41,7 +41,7 @@ class Article extends Model
      */
     public function __get($key)
     {
-        if($key == 'author') {
+        if ($key == 'author') {
             return $this->author_id ? Author::findById($this->author_id) : null;
         }
 

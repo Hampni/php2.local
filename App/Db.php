@@ -45,6 +45,22 @@ class Db
 
     }
 
+    /**
+     * @param string $sql
+     * @param $params
+     * @param string|null $class
+     * @return \Generator
+     */
+    public function queryEach(string $sql, $params = [], string $class = null)
+    {
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute($params);
+        $sth->setFetchMode(\PDO::FETCH_CLASS, $class);
+        while ($row = $sth->fetch()) {
+            yield $row;
+        }
+    }
+
 
     /**
      * @param $query // request to database
@@ -54,8 +70,8 @@ class Db
     public function execute($query, $params = []): bool
     {
         $sth = $this->dbh->prepare($query);
-        return $sth->execute($params);
 
+        return $sth->execute($params);
     }
 
     /**

@@ -7,7 +7,7 @@
 <body>
 
 <div class="container">
-
+    <a href="/AdminPanel/index.php">admin panel</a>
     <h1> Новости: </h1>
     <table class="table table-striped">
         <tr>
@@ -15,7 +15,7 @@
             <th>Текст</th>
             <th>Автор</th>
         </tr>
-        <?php foreach ($this->news as $article) :?>
+        <?php foreach ($this->news as $article):?>
             <tr> 
                 <th>
                     <a href="/article?id=<?php echo $article->id?>">

@@ -17,6 +17,6 @@ class Delete extends Controller
     {
         $deleteArticle = Article::findById($_GET['id']);
         $deleteArticle->delete();
-
+        header('Location: /AdminPanel/index.php');
     }
 }

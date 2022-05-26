@@ -24,6 +24,17 @@ abstract class Model
     }
 
     /**
+     * @return \Generator
+     */
+    public static function findAllGenerator() :\Generator
+    {
+        $db = new Db();
+        $sql = 'SELECT * FROM ' . static::TABLE;
+        return $db->queryEach($sql, [], static::class);
+
+    }
+
+    /**
      * @param $id // id of the table row
      * @return mixed|void // row of the table
      */

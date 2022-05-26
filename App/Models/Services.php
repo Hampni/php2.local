@@ -11,5 +11,4 @@ class Services extends Model implements HasPriceInterface
     public string $name;
 
     use HasPriceTrait;
-
 }

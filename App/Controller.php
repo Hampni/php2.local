@@ -7,7 +7,7 @@ abstract class Controller
 
     protected View $view;
 
-    protected function access() : bool
+    protected function access(): bool
     {
         return true;
     }
@@ -17,7 +17,7 @@ abstract class Controller
         $this->view = new View();
     }
 
-     final public function __invoke()
+    final public function __invoke()
     {
 
         if ($this->access()) {
@@ -27,6 +27,7 @@ abstract class Controller
         }
 
     }
+
     abstract protected function action();
 
 

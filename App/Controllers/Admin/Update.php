@@ -22,9 +22,10 @@ class Update extends Controller
             $updateArticle->save();
         } catch (MultiExeption $errors) {
             foreach ($errors->getAll() as $error) {
-                throw $error->getMessage();
+                echo $error->getMessage() . '<br>';
             }
+            die();
         }
-
+        header('Location: /AdminPanel/index.php');
     }
 }

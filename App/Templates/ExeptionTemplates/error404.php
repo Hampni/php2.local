@@ -8,6 +8,7 @@
 
 <div style="" class="container">
     <a href="/">Назад</a>
+
     <div style="text-align: center; margin-top: 100px">
         <h1>Ошибка 404 - ничего не найдено</h1>
         <img src="/App/Images/Рудге.jpg" alt="Рудге">

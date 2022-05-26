@@ -21,3 +21,24 @@
 21-05-2022 17:02:21   Not valid contents   C:\OpenServer\domains\php2.local\App\Validator.php   line - 31
 21-05-2022 17:02:22   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
 21-05-2022 17:03:02   Неверный хост базы данных!   C:\OpenServer\domains\php2.local\App\Db.php   line - 17
+26-05-2022 13:09:04   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:14:06   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
+26-05-2022 13:14:13   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:14:59   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:18:17   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:18:22   Not valid title   C:\OpenServer\domains\php2.local\App\Validator.php   line - 23
+26-05-2022 13:18:22   Not valid contents   C:\OpenServer\domains\php2.local\App\Validator.php   line - 31
+26-05-2022 13:18:22   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
+26-05-2022 13:19:59   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:20:10   Not valid title   C:\OpenServer\domains\php2.local\App\Validator.php   line - 23
+26-05-2022 13:20:10   Not valid contents   C:\OpenServer\domains\php2.local\App\Validator.php   line - 31
+26-05-2022 13:20:10   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
+26-05-2022 13:20:56   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:22:41   Not valid title   C:\OpenServer\domains\php2.local\App\Validator.php   line - 23
+26-05-2022 13:22:41   Not valid contents   C:\OpenServer\domains\php2.local\App\Validator.php   line - 31
+26-05-2022 13:22:41   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39
+26-05-2022 13:22:49   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:24:44   Ошибка 404 - не найдено   C:\OpenServer\domains\php2.local\App\Model.php   line - 49
+26-05-2022 13:25:13   Not valid title   C:\OpenServer\domains\php2.local\App\Validator.php   line - 23
+26-05-2022 13:25:13   Not valid contents   C:\OpenServer\domains\php2.local\App\Validator.php   line - 31
+26-05-2022 13:25:13   Not valid author   C:\OpenServer\domains\php2.local\App\Validator.php   line - 39

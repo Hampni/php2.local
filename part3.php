@@ -1,6 +1,32 @@
 <?php
 declare(strict_types=1);
+require __DIR__ . '/autoload.php';
 
+$functions = [
+    function ($article) {
+        return $article->id;
+    },
+    function ($article) {
+        return $article->title;
+    },
+    function ($article) {
+        return $article->contents;
+    },
+    function ($article) {
+        return $article->author_id;
+    },
+];
+
+$news = \App\Models\Article::findAll();
+
+
+$table = new \App\AdminDataTable($news, $functions);
+$table->render();
+
+
+
+
+/*
 require_once __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/autoload.php';
 
@@ -26,7 +52,7 @@ if ($mailer->send($message)) {
 } else {
     echo 'fail';
 }
-
+*/
 
 
 
